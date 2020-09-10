@@ -1,0 +1,43 @@
+No.,Chemical,CAS_trimmed,Class,Molecular weight,class
+1,Benz(a)anthracene,56-55-3,PAH,228.29,PAH
+2,Naphthalene,91-20-3,PAH,128.17,PAH
+3,Fluoranthene,206-44-0,PAH,202.26,PAH
+4,"p,p'-DDT",50-29-3,Pesticide,354.48,Pesticides
+5,Dieldrin,60-57-1,Pesticide,380.91,Pesticides
+6,Aldrin,309-00-2,Pesticide,364.9,Pesticides
+7,Heptachlor,76-44-8,Pesticide,373.32,Pesticides
+8,Lindane,58-89-9,Pesticide,290.83,Pesticides
+9,Disulfoton,298-04-4,Pesticide,274.404,Pesticides
+10,Endrin,72-20-8,Pesticide,380.907,Pesticides
+11,Diazinon,333-41-5,Pesticide,304.34,Pesticides
+12,Heptachlor epoxide,1024-57-3,Pesticide,389.32,Pesticides
+13,Pentachlorophenol,87-86-5,HPV,266.34,HPV
+14,Dibutyl phthalate,84-74-2,Plasticizer,278.35,Phthalates
+15,Chlorpyrifos,2921-88-2,Pesticide,350.57,Pesticides
+16,Di(2-ethylhexyl) phthalate,117-81-7,Plasticizer,390.56,Phthalates
+17,"2,4,6-Trichlorophenol",88-06-2,HPV,197.45,HPV
+18,Ethion,563-12-2,Pesticide,384.48,Pesticides
+19,Azinphos-methyl,86-50-0,Pesticide,317.32,Pesticides
+20,"2,4,5-Trichlorophenol",95-95-4,HPV,197.446,HPV
+21,Parathion,56-38-2,Pesticide,291.26,Pesticides
+22,Benzo(b)fluoranthene,205-99-2,PAH,252.32,PAH
+23,Trifluralin,1582-09-8,Pesticide,335.28,Pesticides
+24,Acenaphthene,83-32-9,PAH,154.21,PAH
+25,"p,p'-DDD",72-54-8,Pesticide,320.04,Pesticides
+26,Benzidine,92-87-5,HPV,184.24,HPV
+27,Endosulfan,115-29-7,Pesticide,406.9,Pesticides
+28,Methoxychlor,72-43-5,Pesticide,345.65,Pesticides
+29,"2,4-Dinitrophenol",51-28-5,Pesticide,184.11,Pesticides
+30,"2,4-Dinitrotoluene",121-14-2,HPV,182.134,HPV
+31,Dicofol,115-32-2,Pesticide,370.48,Pesticides
+32,p-Cresol,106-44-5,HPV,108.13,HPV
+33,"o,p'-DDT",789-02-6,Pesticide,354.49,Pesticides
+34,"2-Methyl-4,6-dinitrophenol",534-52-1,HPV,198.13,HPV
+35,"1,2,3-Trichlorobenzene",87-61-6,HPV,181.447,HPV
+36,Lead nitrate,7439-92-1,Metal,331.2,Heavy Metals
+37,Cadmium chloride,7440-43-9,Metal,183.31,Heavy Metals
+38,Zinc chloride,7440-66-6,Metal,136.315,Heavy Metals
+39,Mercuric chloride,7487-94-7,Metal,271.52,Heavy Metals
+40,Potassium chromate (VI),18540-29-9,Metal,194.19,Heavy Metals
+41,Cobalt chloride,7440-48-4,Metal,129.839,Heavy Metals
+42,Nickel chloride,7440-02-0,Metal,129.5994,Heavy Metals

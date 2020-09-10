@@ -1,0 +1,1 @@
+Source file of "Risk characterization and probabilistic concentration-response modeling of complex environmental mixtures using new approach methodologies (NAMs) data from organotypic in vitro human stem cell assays". The OneClickRun.R can help you reproduce all reseach results.
