@@ -1,0 +1,48 @@
+﻿Cell Type,Phenotype
+iCell Neurons,ATP
+,Cell number
+,Cells with significant outgrowth
+,Cytoplasmic integrity
+,Mean outgrowth
+,Mitochondrial integrity
+,Total branches
+,Total cell body area
+,Total outgrowth
+,Total process 
+iCell Hepatocytes,All cell mean area
+,Cell number
+,Mitochondrial intensity
+,Mitochondrial integrity
+,Nuclei mean area
+HUVEC,Cell number
+,Cytoplasmic integrity
+,Mean tube length
+,Mitochondrial intensity
+,Mitochondrial integrity
+,Nuclei mean area
+,Total tube area
+,Total tube length
+iCell Endothelial cells,Cell number
+,Cytoplasmic integrity
+,Mean tube length
+,Mitochondrial intensity
+,Mitochondrial integrity
+,Nuclei mean area
+,Total tube area
+,Total tube length
+iCell Cardiomyocytes,Beats per minute – 15 min
+,Beats per minute – 90 min
+,Cell number
+,Peak decay time – 15 min
+,Peak decay time – 90 min
+,Decay to rise ratio – 15 min
+,Decay to rise ratio – 90 min
+,Mitochondrial integrity
+,Peak amplitude – 15 min
+,Peak amplitude – 90 min
+,Peak spacing – 15 min
+,Peak spacing – 90 min
+,Peak width – 15 min
+,Peak width – 90 min
+,Peak rise time – 15 min
+,Peak rise time – 90 min
