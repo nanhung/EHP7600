@@ -89,8 +89,6 @@ The zip file contains the folder of R code (**codes**) and datasets (**datasets*
 
 - **plots:** All plots showed in the manuscript were saved in this folder. The **suppl**  folder includes the supplementary figures that showed below.
 
-- **reports** The convergence and summary of statistics of MCMC simulation were recorded in *report_mcmc_ind_chems.log* and *report_mcmc_mixture.log*. The collection of bibliography (*bibfile.bib*) and the template for manuscript word document (*manuscript-style.docx*) are also stored in this folder, which are used in the Rmarkdown files (*manuscript.Rmd* and *supplemental.Rmd*) to generate the document of manuscript and Supplemental Materials. All records include the collected information about the current R session, package version, and operating system for understanding the demand for reproducible results.
-
 \newpage
 
 Supplementary Tables
