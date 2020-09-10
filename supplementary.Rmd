@@ -6,15 +6,15 @@ date: "$^1$ Interdisciplinary Faculty of Toxicology \n$^2$ Department of Veterin
   Integrative Biosciences, College of Veterinary Medicine and Biomedical Sciences,
   Texas A&M University, College Station, TX 77843"
 output:
-  html_document:
-    df_print: paged
+  word_document:
     toc: yes
     toc_depth: '3'
   pdf_document:
     fig_caption: yes
     toc: yes
     toc_depth: 3
-  word_document:
+  html_document:
+    df_print: paged
     toc: yes
     toc_depth: '3'
 numbersections: yes
@@ -73,7 +73,7 @@ library(PerformanceAnalytics)
 Supplementary Data
 ==================
 
-The zip file contains the folder of R code (**codes**) and datasets (**datasets**) that can reproduce the modeling and analyze result (in **outputs** folder) and visualize plots (in **plots** folder) and final report (in **reports** folder). All data will publicly release on Github after the paper published. The details and data pipelines are included in:
+The Github repository https://github.com/nanhung/EHP7600 contains the R code (**codes**) and datasets (**datasets**) that can reproduce the modeling and analyze result (in **outputs** folder) and visualize plots (in **plots** folder) and final report (in **reports** folder). The details and data pipelines are included in:
 
 - **codes:** The source code to reproduce the modeling and analyze result that include:
   - *hill_two.stan:* Stan code of Hill model for the concentration-response modeling.
