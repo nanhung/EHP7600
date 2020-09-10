@@ -1,22 +1,31 @@
 ---
 title: "Supplemental Materials"
-subtitle: 'Risk characterization and probabilistic concentration-response modeling of complex environmental mixtures using novel approach methodologies (NAMs) data from the organotypic *in-vitro* human stem cell assays'
-author: "Nan-Hung Hsieh$^{1,2,**}$, Zunwei Chen$^{1,2,**}$, Ivan Rusyn$^{1,2,*}$, Weihsueh A. Chiu$^{1,2,*}$"
-date: "$^1$ Interdisciplinary Faculty of Toxicology \n$^2$ Department of Veterinary Integrative Biosciences, College of Veterinary Medicine and Biomedical Sciences, Texas A&M University, College Station, TX 77843"
-header-includes:
-    - \usepackage{caption}
-    - \captionsetup[figure]{labelformat=empty}
-    - \captionsetup[table]{labelformat=empty}
-
-linestretch: 2
-numbersections: true
-
+author: Nan-Hung Hsieh$^{1,2,**}$, Zunwei Chen$^{1,2,**}$, Ivan Rusyn$^{1,2,*}$, Weihsueh
+  A. Chiu$^{1,2,*}$
+date: "$^1$ Interdisciplinary Faculty of Toxicology \n$^2$ Department of Veterinary
+  Integrative Biosciences, College of Veterinary Medicine and Biomedical Sciences,
+  Texas A&M University, College Station, TX 77843"
 output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '3'
   pdf_document:
-    toc: true
+    fig_caption: yes
+    toc: yes
     toc_depth: 3
-    fig_caption: true
-
+  word_document:
+    toc: yes
+    toc_depth: '3'
+numbersections: yes
+linestretch: 2
+subtitle: Risk characterization and probabilistic concentration-response modeling
+  of complex environmental mixtures using novel approach methodologies (NAMs) data
+  from the organotypic *in-vitro* human stem cell assays
+header-includes:
+- \usepackage{caption}
+- \captionsetup[figure]{labelformat=empty}
+- \captionsetup[table]{labelformat=empty}
 ---
 
 \hfill
@@ -137,6 +146,15 @@ read.csv(mix_info)[c(1,8,9)] %>%
   mutate(`RFD.L.p` = round(RFD.L/sum(RFD.L)*100, 2)) %>%
   mutate(`RFD.H.p` = round(RFD.H/sum(RFD.H)*100, 2)) %>%
   `colnames<-`(c("Chemical", "RFD-L (micromole)", "RFD-H (micromole)", "RFD-L (%)", "RFD-H (%)")) %>% kable(caption = "Table S5. The summary of the RFD-based designed mixture.")
+```
+
+\newpage
+
+```{r, eval=T}
+phenotypes<-"datasets/Cell-Phenotypes.csv"
+read.csv(phenotypes) %>% 
+  `colnames<-`(c("Cell Type", "Phenotype")) %>%
+kable(caption="Table S6. High-content screening phenotypes (n=47) evaluated in this study. Phenotypes are listed for each cell type (n=5) tested. Please refer to the Methods for references to the published manuscripts that describe each assay type for each cell type.")
 ```
 
 \newpage
