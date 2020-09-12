@@ -2,11 +2,15 @@
 # The file can run whole process and reproduce all results 
 # CAUTION: Total time spent will be 7- 8 hours
 
-library(rmarkdown)
+# Install packages-----------------
+#pkg <- c("gridGraphics", "rstan", "knitr", "jpeg", "tiff", "tidyverse", 
+#         "reshape2","scales", "ggpubr", "treemapify", "cowplot", "bayestestR",
+#         "ggridges", "gridExtra", "PerformanceAnalytics", "rmarkdown")
+#install.packages(pkg)
 
+# RUN ------------------------------
 Str.time <- Sys.time()
-
-cores <- 1  
+cores <- 1
 # Originally, we used 3 MCMC chains, but can change to 1 to save computational time 
 
 source("codes/0_mcmc_ind_chems.R")
@@ -33,11 +37,11 @@ source("codes/5_plot_suppl.R")
 Sys.time()
 Sys.time() - Str.time 
 
-#render('manuscript.Rmd')
+#rmarkdown::render('manuscript.Rmd')
 #Sys.time()
 #Sys.time() - Str.time 
 
-render('supplementary.Rmd')
+rmarkdown::render('supplementary.Rmd')
 Sys.time()
 Sys.time() - Str.time
 
