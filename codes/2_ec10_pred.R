@@ -1,5 +1,5 @@
 # Hint: Select all R script and run them ####
-# ** CAUTION: Will take about 45 minutes**
+# ** CAUTION: Will take about 30 minutes**
 
 # Load package ------------------------------------------------------------
 library(dplyr)

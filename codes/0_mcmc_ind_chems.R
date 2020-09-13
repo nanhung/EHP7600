@@ -1,5 +1,5 @@
 # Hint: Select all R script and run them ####
-# ** CAUTION: Will take about 3.5 hours**
+# ** CAUTION: Will take about 2 - 2.5 hours**
 
 # Load packages
 library(rstan)
@@ -31,7 +31,6 @@ Str.t <- Sys.time()
 if (exists("cores")) cores <- cores else cores <- 3
 rstan_options(auto_write = TRUE)
 options(mc.cores = cores)
-Sys.setenv(LOCAL_CPPFLAGS = '-march=native')
 
 for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
   
@@ -50,10 +49,11 @@ for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
         filter(celltype == unique(x$celltype)[i]) %>%    
         filter(phenotype == resp[j]) %>%  
         filter(chemical == chems[k])
+      X <- X[complete.cases(X),]
       
       # Prepared setting for simulation
       dat <- list(
-        "len" = 10,                     # No. of data points
+        "len" = nrow(X),                     # No. of data points
         "y" = X$Response,               # Corresponding response
         "d" = X$Concentration,          # Given Concentration
         "p_b" = c(0.001, 10000),        # Prior for ec50
@@ -63,7 +63,7 @@ for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
       
       # Run!
       fit <- stan(file = hill_two, data = dat, 
-                  iter = 4000, chains = cores, seed = 42,  
+                  iter = 4000, chains = chains, seed = 42,  
                   control = list(adapt_delta = 0.95, max_treedepth = 20))
       
       cat("\n Cell type: ", i, "/", 5, "; ", celltypes[i], "\n", 
@@ -81,7 +81,7 @@ for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
       print(fit) 
       cat("---------------------------------------------------------------------------\n\n")
       sink()
-      
+
       # Extract and save result
       mcmc <- fit %>% rstan::extract()
       m <- cbind(mcmc$b, mcmc$n)
@@ -101,5 +101,5 @@ end.t
 sink(opt, append=TRUE)  
 end.t
 cat(paste0("\nEnding time: ", Sys.time(), "\n\n"))
-sessionInfo()
+print(sessionInfo())
 sink()

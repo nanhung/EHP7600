@@ -1,5 +1,5 @@
 # Hint: Select all R script and run them ####
-# ** CAUTION: Will take about 2 hours**
+# ** CAUTION: Will take about 1.5-2 hours**
 
 # Load packages
 library(rstan)
@@ -32,7 +32,6 @@ Str.t <- Sys.time()
 if (exists("cores")) cores <- cores else cores <- 3
 rstan_options(auto_write = TRUE)
 options(mc.cores = cores)
-Sys.setenv(LOCAL_CPPFLAGS = '-march=native')
 
 for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
   
@@ -64,7 +63,7 @@ for(i in 1:5){ # 5 Human induced pluripotent stem cell (iPSC)-derived cells
       
       # Run!
       fit <- stan(file = hill_two, data = dat, 
-                  iter = 8000, chains = cores, seed = 8,  
+                  iter = 8000, chains = chains, seed = 8,  
                   control = list(adapt_delta = 0.95, max_treedepth = 20))
       
       cat("\n Cell type: ", i, "/", 5, "; ", celltypes[i], "\n", 
@@ -102,5 +101,5 @@ end.t
 sink(opt, append=TRUE)  
 end.t
 cat(paste0("\nEnding time: ", Sys.time(), "\n\n"))
-sessionInfo()
+print(sessionInfo())
 sink()

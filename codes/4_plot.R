@@ -1,5 +1,5 @@
 # Hint: Select all R script and run them ####
-rm(list=ls())
+# rm(list=ls())
 
 # Load packages
 library(gridGraphics)
@@ -89,10 +89,9 @@ p2.2 <- read.csv("datasets/mixture_info.csv") %>%
         axis.text.x=element_text(size=14, face = "bold", color = "black")) 
 p2.2
 
-#tiff("plots/fig2.tiff", res=600, compression = "lzw", height = 8, width = 11, units="in")
-pdf("plots/fig2.pdf", height = 8, width = 11)
-plot_grid(p2.1, p2.2, nrow = 2, rel_heights = c(2/3, 1/3), labels = c('A', 'B'), label_size = 22)
-dev.off()
+p2 <- plot_grid(p2.1, p2.2, nrow = 2, rel_heights = c(2/3, 1/3), labels = c('A', 'B'), label_size = 22)
+ggsave("plots/fig2.pdf", height = 8, width = 11, units="in")
+
 
 #**************************************************************************
 # Concentration response (fig. 4.) ----------------------------------------
@@ -345,10 +344,8 @@ p5.2 <- EC10_cell %>%
         axis.text.x=element_text(size=14, face = "bold", color = "black"))
 p5.2
 
-#tiff("plots/fig5.tiff", res=600, compression = "lzw", height = 12, width = 10, units="in")
-pdf("plots/fig5.pdf", height = 12, width = 10)
-plot_grid(p5.1, p5.2, nrow = 2, rel_heights = c(3/4, 1/4), labels = c('A', 'B'), label_size = 22)
-dev.off()
+p5 <- plot_grid(p5.1, p5.2, nrow = 2, rel_heights = c(3/4, 1/4), labels = c('A', 'B'), label_size = 22)
+ggsave("plots/fig5.pdf", height = 12, width = 10, units="in")
 
 #**************************************************************************
 # IA & CA (Fig. 6) --------------------------------------------------------
@@ -501,15 +498,14 @@ mixplot(5, 1, main = "iCell Cardiomyocytes (BPM, 15 min)")
 mtext("Effect (Fraction of Vehicle)", side=2, line=5, cex=1.5)
 mixplot(2, 3, main = "HUVECs (Mean Tube Length)")
 mtext(expression(paste("Total concentration, ",mu, "M")), side=1, line=1, cex=1.5, outer=TRUE)  
-p6.1 <- recordPlot()
+p6.a <- recordPlot() %>% ggdraw()
+p6.b <- plot_grid(p6.2, p6.3, nrow = 2, rel_heights = c(3/4, 1/4), 
+                  align = "v", axis = "l", labels = c('B', 'C'), label_size = 30)
 
-#tiff("plots/fig6.tiff", res=600, compression = "lzw", height = 10, width = 16, units="in")
-pdf("plots/fig6.pdf", height = 10, width = 16)
-plot_grid(
-  p6.1, 
-  plot_grid(p6.2, p6.3, nrow = 2, rel_heights = c(3/4, 1/4), align = "v", axis = "l", labels = c('B', 'C'), label_size = 30),
-  rel_widths = c(1/3, 2/3), labels = c('A', ''), label_size = 30)
-dev.off()
+p6 <- plot_grid(
+  p6.a, p6.b, rel_widths = c(1/3, 2/3), labels = c('A', ''), label_size = 30
+  )
+ggsave("plots/fig6.pdf", height = 10, width = 16, units="in")
 
 #**************************************************************************
 # MOE (Fig.7) --------------------------------------------------------------
@@ -650,12 +646,19 @@ p7.6 <- mix.MOE.plot(cell = 2, pheno = 3)
 p7 <- arrangeGrob(p7.1, p7.2, p7.3,  
                   p7.4, p7.5, p7.6, 
                   nrow=2, heights = c(4/5,1/5),
-                  bottom="Margin of Exposure", top = "")
+                  bottom="Margin of Exposure", top = "") %>% plot_grid()
+ggsave("plots/fig7.pdf", height = 7, width = 12, units="in")
 
 #tiff("plots/fig7.tiff", res=600, compression = "lzw", height = 6, width = 10, units="in")
-pdf("plots/fig7.pdf", height = 7, width = 12)
-plot_grid(p7)
-dev.off()
+#pdf("plots/fig7.pdf", height = 7, width = 12)
+#plot_grid(p7)
+#dev.off()
+
+
+
+
+
+
 
 #**************************************************************************
 # MOE (Fig.8) -------------------------------------------------------------
@@ -720,22 +723,5 @@ p8.b <- df.mixMOE %>%
         axis.title.x=element_text(color = "black", face="bold", size =12),
         legend.position="none")
 
-#tiff("plots/fig8.tiff", res=600, compression = "lzw", height = 7, width = 8, units="in")
-pdf("plots/fig8.pdf", height = 7, width = 8)
-plot_grid(p8.a, p8.b, nrow = 2, rel_heights = c(2/3, 1/3), labels = c("A", "B"), align = 'v', axis = "l", label_size = 30)
-dev.off()
-
-
-# Transfer tiff to jpeg file to use in word document ------------
-#img <- readTIFF("plots/fig2.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig2.jpeg", quality = 0.5)
-#img <- readTIFF("plots/fig4.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig4.jpeg", quality = 0.5)
-#img <- readTIFF("plots/fig5.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig5.jpeg", quality = 0.5)
-#img <- readTIFF("plots/fig6.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig6.jpeg", quality = 0.5)
-#img <- readTIFF("plots/fig7.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig7.jpeg", quality = 0.5)
-#img <- readTIFF("plots/fig8.tiff", native=TRUE)
-#writeJPEG(img, target = "plots/fig8.jpeg", quality = 0.5)
+p8 <- plot_grid(p8.a, p8.b, nrow = 2, rel_heights = c(2/3, 1/3), labels = c("A", "B"), align = 'v', axis = "l", label_size = 30)
+ggsave("plots/fig8.pdf", height = 7, width = 8, units="in")
